@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+	<body>
+		<input id="name" type="text" name="name" maxLength="20" placeholder="Name"/>
+		<button onclick="greeter()">Say hello</button>
+		</br>
+		<h1 id="greeting"></h1>
+		<script>
+		function greeter() {
+			document.getElementById("greeting").innerHTML = "Nice to meet you, " 
+				+ document.getElementById("name").value + "!";
+			}
+		</script>
+	</body>
+</html>
