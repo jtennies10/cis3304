@@ -1,60 +1,63 @@
 <!DOCTYPE html>
 <html>
-	<style>
+<style>
 	#container {
-	  width: 400px;
-	  height: 400px;
-	  position: relative;
-	  background: yellow;
+		width: 400px;
+		height: 400px;
+		position: relative;
+		background: yellow;
 	}
+	
 	#animate {
-	  width: 50px;
-	  height: 50px;
-	  position: absolute;
-	  background-color: red;
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		background-color: red;
 	}
-	</style>
-	<body>
+</style>
+
+<body>
 
 	<p>
-	<button onclick="myMove()">Click Me</button>
-	</p> 
+		<button onclick="myMove()">Click Me</button>
+	</p>
 
-	<div id ="container">
-	<div id ="animate"></div>
+	<div id="container">
+		<div id="animate"></div>
 	</div>
 
 	<script>
-	function myMove() {
-	  var elem = document.getElementById("animate");   
-	  var container = document.getElementById("container");
-	  var pos = 0;
-	  var posSecond = 700;
-	  var id = setInterval(frame, 5);
-	  function frame() {
-		if (pos == 700) {
-		  clearInterval(id);
-		} else {
-			pos++; 
-			if(pos == 350) {
-				container.style.backgroundColor = colorPicker();
-			}
-			if(pos < 350) {
-				elem.style.left = pos + "px";
-			} else {
-				elem.style.top = (pos - 350) + "px";
+		function myMove() {
+			var elem = document.getElementById("animate");
+			var container = document.getElementById("container");
+			var pos = 0;
+			var posSecond = 700;
+			var id = setInterval(frame, 5);
+			function frame() {
+				if (pos == 700) {
+					clearInterval(id);
+				} else {
+					pos++;
+					if (pos == 350) {
+						container.style.backgroundColor = colorPicker();
+					}
+					if (pos < 350) {
+						elem.style.left = pos + "px";
+					} else {
+						elem.style.top = (pos - 350) + "px";
+					}
+				}
 			}
 		}
-	  }
-	}
-	function colorPicker() {
-		var colorNumber = Math.floor(Math.random * 5);
-		if(colorNumber == 1) return 'blue';
-		else if(colorNumber == 2) return 'black';
-		else if(colorNumber == 3) return 'green';
-		else return 'purple';
-	}
+		function colorPicker() {
+			var colorNumber = Math.floor(Math.random * 5);
+			if (colorNumber == 1) return 'blue';
+			else if (colorNumber == 2) return 'black';
+			else if (colorNumber == 3) return 'green';
+			else return 'purple';
+		}
 	</script>
 
-	</body>
+</body>
+
 </html>
