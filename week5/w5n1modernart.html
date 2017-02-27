@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>A5 Modern Art</title>
+    <style>
+        canvas {
+            background: #eee;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Josh's Awesome Modern Art Page</h1>
+    <canvas id="canvas" width="1200px" height="500px"/>
+    <script>
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        var shapePicker;
+
+        function randomNumber(exclusiveMax) {
+            return Math.floor(Math.random() * exclusiveMax) + .5; //return an integer between 0 and exclusiveMax-1
+        }
+
+        function randomColor() {
+            var one = Math.floor(Math.random() * 230) + "";
+            var two = Math.floor(Math.random() * 230) + "";
+            var three = Math.floor(Math.random() * 230) + "";
+            return "rgb(" + one + "," + two + "," + three + ")"
+        }
+
+        for (var i = 0; i < 50; i++) {
+            shapePicker = Math.floor(randomNumber(3));
+            ctx.beginPath();
+            if (shapePicker == 0) {
+                ctx.rect(randomNumber(1200), randomNumber(1200), randomNumber(200), randomNumber(200));
+            } else if (shapePicker == 1) {
+                ctx.arc(randomNumber(1200), randomNumber(1200), randomNumber(75), 0, Math.PI * 2);
+            } else {
+                var startX = randomNumber(1200);
+                var startY = randomNumber(1200);
+                var otherX = randomNumber(1200);
+                ctx.moveTo(startX, startY);
+                ctx.lineTo(otherX, randomNumber(900));
+                ctx.lineTo(otherX, randomNumber(900));
+            }
+            ctx.fillStyle = randomColor();
+            ctx.fill();
+            ctx.closePath();
+        }
+    </script>
+</body>
+
+</html>
