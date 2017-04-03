@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+	<p><button onclick="colorChanger('red', 'black')">Red</button>
+		<button onclick="colorChanger('green', 'white')">Green</button>
+		<button onclick="colorChanger('blue', 'yellow')">Blue</button></p>
+	<h1 id="header">Josh's Awesome Page</h1>
+	<script>
+				   function colorChanger(backgroundColor, textColor) {
+					   document.body.style.backgroundColor = backgroundColor;
+					   document.getElementById("header").style.color = textColor;
+				   }
+	</script>
+</body>
+
+</html>
